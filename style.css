@@ -4,6 +4,7 @@
 body {
   background: url('assets/oyufY3Z.jpg') no-repeat center center fixed;
   /* A képek forrása: https://imgur.com/t/anime_backgrounds/Nm9B2IV */
+  /* A hangok forrása: http://www.orangefreesounds.com/ */
 /*
   7JVB5vA
   9qFwqx7
@@ -54,6 +55,15 @@ h1 {
   font-size: 10vh;
   text-decoration: none;
 }
+a.jo {
+  color: green;
+}
+a.rossz {
+  color: red;
+}
+.rossz:hover {
+  color: red;
+}
 .mezo a:hover {
   color: cornflowerblue;
 }
@@ -68,6 +78,7 @@ h1 {
   position: absolute;
   bottom: 0;
 }
+
 @media screen and (max-width: 768px) {
   h1 {
     font-size: 5vh;

@@ -28,6 +28,7 @@
   <div class="eredmeny">
     Eredmény: <span id="talalat"></span> / <span id="kattintas"></span>
   </div>
+  <div id="sound"></div>
   <script>
 
   var op1=Math.floor(Math.random() * 10);
@@ -36,9 +37,17 @@
   var talalat=0;
   var kattintas=0;
   var szazalek=0;
-    var hatterek=new Array("7JVB5vA","9qFwqx7","nliN8PZ","oyufY3Z","PdSEK0c","RUPyJkX","zJKYEZg");
+  var hatterek=new Array("7JVB5vA","9qFwqx7","nliN8PZ","oyufY3Z","PdSEK0c","RUPyJkX","zJKYEZg");
     
-  function disp( divs ) {
+  function playSound(filename){
+    var mp3Source = '<source src="assets/' + filename + '.mp3" type="audio/mpeg">';
+    var oggSource = '<source src="assets/' + filename + '.ogg" type="audio/ogg">';
+    var embedSource = '<embed hidden="true" autostart="true" loop="false" src="assets/' + filename +'.mp3">';
+    document.getElementById("sound").innerHTML='<audio autoplay="autoplay">' + mp3Source + oggSource + embedSource + '</audio>';
+  }
+    
+  function disp() {
+    var divs = $( ".mezo a" ).toArray();
     op1=Math.floor(Math.random() * 10);
     op2=Math.floor(Math.random() * 10);
     eredmeny = op1*op2;
@@ -47,21 +56,28 @@
     $("#feladat").text(op1+" × "+op2+" = ?");
 
     for ( var i = 0; i < divs.length; i++ ) {
+      divs[ i ].classList.remove("jo");
+      divs[ i ].classList.remove("megfejtes");
       if (i == sorszam ) {
         divs[ i ].innerHTML = eredmeny;
+        divs[ i ].classList.add("megfejtes");
       } else {
         divs[ i ].innerHTML=Math.floor(Math.random() * 100);
       }
     }
   }
     
-  disp( $( ".mezo a" ).toArray() ); // kezdeti betöltés
+  disp(); // kezdeti betöltés
 
   $(".mezo a").click(function(o) {
     var megfejtes=o.target.innerHTML;
     if (megfejtes==eredmeny) {
       talalat++;
+      playSound('Electric-spark-sound-effect');
     } else {
+      console.log(o);
+      $(".megfejtes").addClass("jo");
+      playSound('Ticket-machine-sound-effect');
     }
     kattintas++;
     if (kattintas%10==0) {
@@ -71,7 +87,11 @@
     }
     $("#talalat").text(talalat);
     $("#kattintas").text(kattintas);
-    disp( $( ".mezo a" ).toArray() );
+    if (megfejtes==eredmeny) {
+      disp();
+    } else {
+      setTimeout(disp,2000);
+    }
   });
 
   </script>
