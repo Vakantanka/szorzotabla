@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+  }
+body {
+  background: url('assets/oyufY3Z.jpg') no-repeat center center fixed;
+  /* A képek forrása: https://imgur.com/t/anime_backgrounds/Nm9B2IV */
+/*
+  7JVB5vA
+  9qFwqx7
+  nliN8PZ
+  oyufY3Z
+  PdSEK0c
+  RUPyJkX
+  zJKYEZg
+*/  
+  background-size: cover;
+  font-family: 'Shojumaru', cursive;
+  text-align: center;
+}
+h1 {
+  font-size: 4rem;
+  width: 85vw;
+  margin: 2rem auto;
+  line-height: 3.5rem;
+  color: rgba(0,0,255,.6);
+  background: rgba(255,255,255,.5);
+  padding: 1rem;
+}
+#feladat {
+  font-size: 5rem;
+  width: 85vw;
+  margin: 2rem auto;
+  line-height: 3.5rem;
+  color: #fff;
+  background: rgba(0,0,255,.5);
+  padding: 1rem;
+}
+.tabla {
+  max-width: 72vh;
+  margin: 0 auto;
+  position: relative;
+}
+.mezo {
+  display: inline-block;
+  width: 20vh;
+  margin: 1vh;
+  background: #eee;
+  height: 20vh;
+  line-height: 20vh;
+}
+.mezo a {
+  display: block;
+  color: coral;
+  font-size: 10vh;
+  text-decoration: none;
+}
+.mezo a:hover {
+  color: cornflowerblue;
+}
+.mezo:hover {
+  background-color: aliceblue;
+}
+
+.eredmeny {
+  width: 100vw;
+  line-height: 3rem;
+  background: rgba(255,255,255,.5);
+  position: absolute;
+  bottom: 0;
+}
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 5vh;
+  }
+  #feladat {
+    font-size: 10vw;
+  }
+  .tabla {
+  }
+  .mezo {
+    width: 27vw;
+    height: 22vw;
+    line-height: 22vw;
+  }
+  .mezo a {
+    font-size: 12vw;
+  }
+}
+
+@media screen and (max-height: 680px) {
+  h1 {
+    display: none;
+  }
+  #feladat {
+    font-size: 5vh;
+  }
+  .tabla {
+    max-width: 80vh;
+  }
+  .mezo {
+    width: 22vh;
+    height: 22vh;
+    line-height: 22vh;
+  }
+  .mezo a {
+    font-size: 12vh;
+  }
+}
